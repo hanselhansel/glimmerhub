@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GlimmerHub</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo">G</span>
+      <div>
+        <h1>GlimmerHub</h1>
+        <p class="tagline">See what is rising before it breaks.</p>
+      </div>
+    </div>
+    <nav class="nav-tabs">
+      <button data-view="feed" class="active">Feed</button>
+      <button data-view="topics">Topics</button>
+      <button data-view="mentions">Mentions</button>
+      <button data-view="insights">Insights</button>
+    </nav>
+    <button id="theme-toggle" class="icon-btn" aria-label="Toggle theme">☯</button>
+  </header>
+
+  <main id="app">
+    <section id="feed" class="view active">
+      <div class="controls">
+        <div class="period-tabs">
+          <button data-period="daily">Daily</button>
+          <button data-period="weekly" class="active">Weekly</button>
+          <button data-period="monthly">Monthly</button>
+          <button data-period="yearly">Yearly</button>
+        </div>
+        <input id="search" type="search" placeholder="Search projects, topics, or descriptions" autocomplete="off">
+        <button id="compare-action" class="secondary" disabled>Compare</button>
+        <button id="clear-compare" class="ghost hidden">Clear</button>
+      </div>
+      <div class="compare-pool" id="compare-pool"></div>
+      <ol id="feed-list" class="feed-list"></ol>
+    </section>
+
+    <section id="topics" class="view">
+      <h2>Topics</h2>
+      <p class="helper">Click a topic to filter the feed.</p>
+      <div id="topic-cloud" class="topic-cloud"></div>
+    </section>
+
+    <section id="mentions" class="view">
+      <h2>Live mentions</h2>
+      <p class="helper">Links, quotes, and discussions that mention these projects.</p>
+      <ol id="mention-list" class="mention-list"></ol>
+    </section>
+
+    <section id="insights" class="view">
+      <h2>Insights</h2>
+      <p class="helper">Estimated star gains by topic for this period.</p>
+      <div id="insight-chart" class="insight-chart"></div>
+    </section>
+  </main>
+
+  <aside id="detail" class="modal" role="dialog" aria-modal="true" aria-label="Project details">
+    <div class="modal-backdrop"></div>
+    <div class="modal-panel" id="detail-panel"></div>
+  </aside>
+
+  <aside id="compare" class="modal" role="dialog" aria-modal="true" aria-label="Compare projects">
+    <div class="modal-backdrop"></div>
+    <div class="modal-panel" id="compare-panel"></div>
+  </aside>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

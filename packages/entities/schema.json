@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "glimmerhub-entity",
+  "title": "GlimmerHub Entity",
+  "description": "A project, product, or other entity that GlimmerHub tracks across public sources.",
+  "type": "object",
+  "required": ["id", "owner", "name", "kind", "description", "stars", "starsGainedWeek", "starsGainedMonth", "language", "license", "topics", "momentum", "sources", "briefing", "mentions", "activity"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^[^/]+/[^/]+$" },
+    "owner": { "type": "string" },
+    "name": { "type": "string" },
+    "kind": { "type": "string", "enum": ["repository", "product", "paper", "event"] },
+    "description": { "type": "string" },
+    "url": { "type": "string", "format": "uri" },
+    "website": { "type": ["string", "null"], "format": "uri" },
+    "stars": { "type": "integer", "minimum": 0 },
+    "starsGainedWeek": { "type": "integer" },
+    "starsGainedMonth": { "type": "integer" },
+    "language": { "type": ["string", "null"] },
+    "license": { "type": ["string", "null"] },
+    "topics": { "type": "array", "items": { "type": "string" } },
+    "momentum": { "type": "string", "enum": ["rising", "steady", "falling"] },
+    "status": { "type": ["string", "null"] },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "url"],
+        "properties": {
+          "name": { "type": "string" },
+          "url": { "type": "string", "format": "uri" }
+        }
+      }
+    },
+    "briefing": {
+      "type": "object",
+      "required": ["whatItDoes", "whyTrending", "recentChanges", "signals", "alternatives"],
+      "properties": {
+        "whatItDoes": { "type": "string" },
+        "whyTrending": { "type": "string" },
+        "recentChanges": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["type", "title", "summary", "url"],
+            "properties": {
+              "type": { "type": "string", "enum": ["release", "commit", "pr", "issue", "mention"] },
+              "title": { "type": "string" },
+              "summary": { "type": "string" },
+              "url": { "type": "string", "format": "uri" }
+            }
+          }
+        },
+        "signals": {
+          "type": "object",
+          "required": ["activity", "releaseCadence", "contributorGrowth", "issueResolution"],
+          "properties": {
+            "activity": { "type": "integer", "minimum": 0, "maximum": 100 },
+            "releaseCadence": { "type": "integer", "minimum": 0, "maximum": 100 },
+            "contributorGrowth": { "type": "integer", "minimum": 0, "maximum": 100 },
+            "issueResolution": { "type": "integer", "minimum": 0, "maximum": 100 }
+          }
+        },
+        "alternatives": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["name", "url"],
+            "properties": {
+              "name": { "type": "string" },
+              "url": { "type": "string", "format": "uri" }
+            }
+          }
+        }
+      }
+    },
+    "mentions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["source", "url", "quote"],
+        "properties": {
+          "source": { "type": "string" },
+          "url": { "type": "string", "format": "uri" },
+          "quote": { "type": "string" }
+        }
+      }
+    },
+    "activity": {
+      "type": "array",
+      "items": { "type": "integer" },
+      "description": "Seven data points for a sparkline, oldest to newest."
+    }
+  }
+}
