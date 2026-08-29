@@ -4,7 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>GlimmerHub</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="theme.css">
+  <link rel="stylesheet" href="layout.css">
+  <link rel="stylesheet" href="components.css">
 </head>
 <body>
   <header class="topbar">
@@ -17,6 +19,7 @@
     </div>
     <nav class="nav-tabs">
       <button data-view="feed" class="active">Feed</button>
+      <button data-view="radar">Radar</button>
       <button data-view="topics">Topics</button>
       <button data-view="mentions">Mentions</button>
       <button data-view="insights">Insights</button>
@@ -34,11 +37,18 @@
           <button data-period="yearly">Yearly</button>
         </div>
         <input id="search" type="search" placeholder="Search projects, topics, or descriptions" autocomplete="off">
-        <button id="compare-action" class="secondary" disabled>Compare</button>
-        <button id="clear-compare" class="ghost hidden">Clear</button>
+        <button id="compare-action" class="btn" disabled>Compare</button>
+        <button id="clear-compare" class="btn-ghost hidden">Clear</button>
       </div>
       <div class="compare-pool" id="compare-pool"></div>
       <ol id="feed-list" class="feed-list"></ol>
+    </section>
+
+    <section id="radar" class="view">
+      <h2>Topic radar</h2>
+      <p class="helper">Dots are projects. Distance from the center is the Glimmer score. Color is strength.</p>
+      <div id="radar-canvas" style="position:relative"></div>
+      <div id="radar-tooltip" class="score-pill" style="position:absolute; display:none; pointer-events:none; top:0; left:0"></div>
     </section>
 
     <section id="topics" class="view">
@@ -70,7 +80,12 @@
     <div class="modal-panel" id="compare-panel"></div>
   </aside>
 
+  <script src="rubric.js"></script>
+  <script src="utils.js"></script>
   <script src="data.js"></script>
+  <script src="score.js"></script>
+  <script src="radar.js"></script>
+  <script src="render.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
