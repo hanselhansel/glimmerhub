@@ -32,7 +32,7 @@ const GLIMMER_LENSES = [
     name: 'Physical AI',
     description: 'Robotics, embodied AI, simulation, world models, sensors, and edge inference.',
     themes: GLIMMER_TAXONOMY.filter(theme => ['robotics', 'embodied-ai', 'robot-learning', 'simulation', 'world-models', 'sensor-fusion', 'edge-inference'].includes(theme.id)).map(theme => ({ ...theme, enabled: true })),
-    exampleEntityIds: ['huggingface/lerobot', 'NVIDIA/IsaacLab'],
+    exampleEntityIds: ['huggingface/lerobot', 'isaac-sim/IsaacLab'],
     exclusions: ['general computer vision'],
     editorial: {
       leadEntityId: 'huggingface/lerobot',

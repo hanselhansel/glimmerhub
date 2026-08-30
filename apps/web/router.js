@@ -37,5 +37,9 @@ function announceRoute(title) {
   document.title = `${title} | GlimmerHub`;
   const live = document.getElementById('route-status');
   if (live) live.textContent = title;
+  if (state.suppressRouteFocus) {
+    state.suppressRouteFocus = false;
+    return;
+  }
   requestAnimationFrame(() => document.querySelector('main h1, main h2')?.focus({ preventScroll: true }));
 }
