@@ -46,10 +46,13 @@ function toggleCompareSelection(id) {
   renderCompareTray();
 }
 
-function toggleMobileMenu() {
+function toggleMobileMenu(force) {
   const menu = document.getElementById('mobile-menu');
+  const backdrop = document.getElementById('mobile-menu-backdrop');
   const button = document.getElementById('mobile-menu-toggle');
-  const open = menu.classList.toggle('hidden') === false;
+  const open = typeof force === 'boolean' ? force : menu.classList.contains('hidden');
+  menu.classList.toggle('hidden', !open);
+  backdrop.classList.toggle('hidden', !open);
   button.setAttribute('aria-expanded', String(open));
 }
 
@@ -117,8 +120,9 @@ function handleClick(event) {
     return;
   }
   if (event.target.closest('#mobile-menu-toggle')) return toggleMobileMenu();
+  if (event.target.closest('#mobile-menu-backdrop')) return toggleMobileMenu(false);
   if (event.target.closest('#mobile-search-toggle')) return toggleMobileSearch();
-  if (event.target.closest('#mobile-menu a')) toggleMobileMenu();
+  if (event.target.closest('#mobile-menu a')) toggleMobileMenu(false);
 }
 
 function handleInput(event) {
@@ -150,7 +154,7 @@ function handleKeydown(event) {
     target?.focus();
   }
   if (event.key === 'Escape') {
-    document.getElementById('mobile-menu')?.classList.add('hidden');
+    toggleMobileMenu(false);
     document.getElementById('mobile-search-panel')?.classList.remove('open');
   }
 }

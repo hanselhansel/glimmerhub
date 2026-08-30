@@ -35,3 +35,10 @@ test('visual system removes score rings and permanent card shadows', () => {
   assert.match(css, /--canvas:\s*#F7F7F4/i);
   assert.match(css, /prefers-reduced-motion/);
 });
+
+test('mobile menu includes an outside-dismiss backdrop', () => {
+  const html = read('index.html');
+  const app = read('app.js');
+  assert.match(html, /id="mobile-menu-backdrop"/);
+  assert.match(app, /mobile-menu-backdrop/);
+});
