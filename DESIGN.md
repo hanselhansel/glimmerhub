@@ -36,8 +36,8 @@ Use the native system stack only:
 | Briefing title | 36 / 40 | 650 | -0.03em |
 | Lead headline | 28 / 33 | 650 | -0.02em |
 | Section title | 18 / 24 | 650 | -0.01em |
-| Row title | 15 / 22 | 600 | -0.01em |
-| Body | 14 / 21 | 400 | normal |
+| Row title | 16 / 23 | 600 | -0.01em |
+| Body | 15 / 23 | 400 | normal |
 | Metadata | 12 / 17 | 450 | normal |
 | Micro label | 11 / 14 | 600 | 0.08em |
 

@@ -23,7 +23,7 @@
   letter-spacing: -0.02em;
   line-height: 33px;
 }
-.lead-thesis { max-width: 720px; margin-bottom: 0; color: var(--ink-2); font-size: 15px; line-height: 23px; }
+.lead-thesis { max-width: 720px; margin-bottom: 0; color: var(--ink-2); font-size: 16px; line-height: 24px; }
 .lead-metrics { display: flex; flex-wrap: wrap; gap: 32px; margin-top: 22px; }
 .lead-metric strong { display: block; font-size: 16px; font-weight: 650; line-height: 21px; font-variant-numeric: tabular-nums; }
 .lead-metric span { color: var(--ink-3); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; }
@@ -38,9 +38,9 @@
 .aside-section { padding-bottom: 24px; margin-bottom: 24px; border-bottom: 1px solid var(--line); }
 .aside-section:last-child { border-bottom: 0; }
 .aside-section h2 { margin: 7px 0 9px; color: var(--ink); font-size: 18px; font-weight: 650; letter-spacing: -0.01em; line-height: 24px; }
-.aside-section p { margin-bottom: 0; font-size: 13px; line-height: 20px; }
+.aside-section p { margin-bottom: 0; font-size: 14px; line-height: 21px; }
 .lens-theme-list, .example-list { list-style: none; padding: 0; margin: 10px 0 0; }
-.lens-theme-list li, .example-list li { display: flex; justify-content: space-between; gap: 12px; padding: 9px 0; border-top: 1px solid var(--line); font-size: 12px; }
+.lens-theme-list li, .example-list li { display: flex; justify-content: space-between; gap: 12px; padding: 9px 0; border-top: 1px solid var(--line); font-size: 13px; }
 .lens-theme-list li > span:first-child { color: var(--ink); font-weight: 500; }
 .lens-theme-list li > span:last-child { color: var(--ink-3); }
 .example-list li { display: block; color: var(--ink); }

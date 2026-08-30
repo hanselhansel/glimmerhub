@@ -54,7 +54,7 @@
 .signal-list { list-style: none; padding: 0; margin: 0; border-bottom: 1px solid var(--line); }
 .signal-row { position: relative; border-top: 1px solid var(--line); }
 .signal-row-link {
-  min-height: 104px;
+  min-height: 110px;
   display: grid;
   grid-template-columns: 32px minmax(0, 1fr) 76px 58px;
   gap: 16px;
@@ -66,11 +66,11 @@
 }
 .signal-row-link:hover, .signal-row-link:focus-visible { background: var(--soft); outline-offset: -2px; }
 .signal-rank { padding-top: 2px; color: var(--ink-3); font-size: 12px; font-variant-numeric: tabular-nums; }
-.signal-title { margin-bottom: 3px; font-size: 15px; font-weight: 600; letter-spacing: -0.01em; line-height: 22px; }
-.signal-thesis { max-width: 640px; color: var(--ink-2); font-size: 13px; line-height: 19px; }
-.signal-proof { margin-top: 7px; color: var(--ink-3); font-size: 11px; line-height: 15px; }
-.signal-delta { color: var(--positive); font-size: 13px; font-weight: 600; text-align: right; font-variant-numeric: tabular-nums; }
-.signal-score { color: var(--signal-text); font-size: 12px; font-weight: 600; text-align: right; font-variant-numeric: tabular-nums; }
+.signal-title { margin-bottom: 3px; font-size: 16px; font-weight: 600; letter-spacing: -0.01em; line-height: 23px; }
+.signal-thesis { max-width: 640px; color: var(--ink-2); font-size: 14px; line-height: 20px; }
+.signal-proof { margin-top: 7px; color: var(--ink-3); font-size: 12px; line-height: 16px; }
+.signal-delta { color: var(--positive); font-size: 14px; font-weight: 600; text-align: right; font-variant-numeric: tabular-nums; }
+.signal-score { color: var(--signal-text); font-size: 13px; font-weight: 600; text-align: right; font-variant-numeric: tabular-nums; }
 .signal-score span { display: block; color: var(--ink-3); font-size: 10px; font-weight: 450; }
 .compare-add {
   position: absolute; right: 0; bottom: 8px;
