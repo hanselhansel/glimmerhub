@@ -132,7 +132,9 @@ html[data-theme="dark"] .brand-mark { filter: invert(1); }
   .site-header { height: 56px; }
   .header-inner { width: calc(100% - 32px); gap: 16px; }
   .primary-nav, .header-actions { display: none; }
+  .brand-link { min-height: 44px; }
   .mobile-actions { display: flex; }
+  .mobile-actions .button-icon { width: 44px; }
   .lens-rail { top: 56px; }
   .lens-rail-inner { width: 100%; padding: 0 16px; gap: 20px; }
   #app-root { min-height: calc(100vh - 104px); }
