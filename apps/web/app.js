@@ -11,7 +11,8 @@ let state = {
   lensError: '',
   lensEditorKey: '',
   pendingLensDelete: null,
-  suppressRouteFocus: false
+  suppressRouteFocus: false,
+  lensFocusId: null
 };
 
 function applyTheme(theme) {
@@ -158,6 +159,7 @@ function handleRouteChange() {
 }
 
 function handleKeydown(event) {
+  if (event.target.matches('[data-lens-id]')) handleLensRailKeydown(event);
   if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k') {
     event.preventDefault();
     const target = window.innerWidth <= 720 ? document.getElementById('mobile-search') : document.getElementById('desktop-search');
@@ -176,6 +178,7 @@ function init() {
   document.addEventListener('input', debounce(handleInput, 90));
   document.addEventListener('keydown', handleKeydown);
   window.addEventListener('hashchange', handleRouteChange);
+  window.addEventListener('resize', debounce(updateLensRailOverflow, 120));
   renderRoute();
 }
 

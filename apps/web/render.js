@@ -34,13 +34,64 @@ function visibleLenses() {
   return allLenses(state.preferences);
 }
 
+function lensRailOverflowState(scrollLeft, clientWidth, scrollWidth) {
+  const maxScroll = Math.max(0, scrollWidth - clientWidth);
+  return { left: scrollLeft > 1, right: scrollLeft < maxScroll - 1 };
+}
+
+function updateLensRailOverflow() {
+  const shell = document.querySelector('.lens-tabs-shell');
+  const viewport = document.querySelector('.lens-tabs-viewport');
+  if (!shell || !viewport) return;
+  const overflow = lensRailOverflowState(viewport.scrollLeft, viewport.clientWidth, viewport.scrollWidth);
+  shell.dataset.overflowLeft = String(overflow.left);
+  shell.dataset.overflowRight = String(overflow.right);
+}
+
+function nextLensTabIndex(current, total, key) {
+  if (!total) return 0;
+  if (key === 'Home') return 0;
+  if (key === 'End') return total - 1;
+  if (key === 'ArrowRight') return (current + 1) % total;
+  if (key === 'ArrowLeft') return (current - 1 + total) % total;
+  return current;
+}
+
+function handleLensRailKeydown(event) {
+  if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+  const tabs = [...document.querySelectorAll('[data-lens-id]')];
+  const current = tabs.indexOf(event.target);
+  if (current < 0) return;
+  event.preventDefault();
+  const target = tabs[nextLensTabIndex(current, tabs.length, event.key)];
+  state.suppressRouteFocus = true;
+  state.lensFocusId = target.dataset.lensId;
+  target.focus({ preventScroll: true });
+  target.scrollIntoView({ inline: 'nearest', block: 'nearest' });
+  target.click();
+}
+
 function renderLensRail() {
   const rail = document.getElementById('lens-rail-list');
   if (!rail) return;
-  rail.innerHTML = visibleLenses().map(lens => `
-    <button class="lens-tab" data-lens-id="${esc(lens.id)}" aria-current="${lens.id === state.preferences.activeLensId}">${esc(lens.name)}</button>
-  `).join('') + '<a class="lens-tab lens-tab-add" href="#lens/new">+ New lens</a>';
-  requestAnimationFrame(() => rail.querySelector('[aria-current="true"]')?.scrollIntoView({ inline: 'nearest', block: 'nearest' }));
+  const tabs = visibleLenses().map(lens => `
+    <button class="lens-tab" type="button" data-lens-id="${esc(lens.id)}" aria-current="${lens.id === state.preferences.activeLensId}" title="${esc(lens.name)}"><span class="lens-tab-label">${esc(lens.name)}</span></button>
+  `).join('');
+  rail.innerHTML = `
+    <div class="lens-tabs-shell" data-overflow-left="false" data-overflow-right="false">
+      <div class="lens-tabs-viewport"><div class="lens-tabs-list">${tabs}</div></div>
+    </div>
+    <a class="new-lens-action" href="#lens/new" aria-label="Create a new lens"><span class="new-lens-plus" aria-hidden="true">+</span><span class="new-lens-label-full">New lens</span><span class="new-lens-label-short">New</span></a>
+  `;
+  const viewport = rail.querySelector('.lens-tabs-viewport');
+  viewport.addEventListener('scroll', updateLensRailOverflow, { passive: true });
+  requestAnimationFrame(() => {
+    const active = rail.querySelector('[aria-current="true"]');
+    active?.scrollIntoView({ inline: 'nearest', block: 'nearest' });
+    if (active && state.lensFocusId === active.dataset.lensId) active.focus({ preventScroll: true });
+    state.lensFocusId = null;
+    requestAnimationFrame(updateLensRailOverflow);
+  });
 }
 
 function renderHeaderState(route) {

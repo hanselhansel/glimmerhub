@@ -92,6 +92,17 @@ Spacing scale: 4, 8, 12, 16, 24, 32, 48, 64px.
 - Briefing desktop: fluid main column, 280px right rail, 48px gap.
 - Mobile: one column with the lens and lead thesis before secondary content.
 
+### Lens rail
+
+- Lens tabs scroll inside a dedicated viewport.
+- New Lens occupies a fixed far-edge column outside the viewport.
+- Desktop label: `+ New lens`. Mobile label: `+ New`.
+- A hairline separates creation from navigation.
+- All controls use flex centering across the same 48px height.
+- Long names cap at 180px desktop and 144px mobile, with ellipsis and a full-name tooltip.
+- A 22px edge fade appears only where hidden tabs remain.
+- Arrow Left, Arrow Right, Home, and End move between lenses and activate the focused lens.
+
 ## Interaction
 
 - Hover and focus color: 120ms.
