@@ -6,6 +6,7 @@ const vm = require('node:vm');
 
 const web = path.join(__dirname, '..', 'apps', 'web');
 const renderSource = fs.readFileSync(path.join(web, 'render.js'), 'utf8');
+const appSource = fs.readFileSync(path.join(web, 'app.js'), 'utf8');
 const layoutSource = fs.readFileSync(path.join(web, 'layout.css'), 'utf8');
 const context = vm.createContext({});
 vm.runInContext(renderSource, context, { filename: 'render.js' });
@@ -53,4 +54,9 @@ test('lens keyboard navigation wraps and supports Home and End', () => {
 test('arrow activation preserves focus in the newly rendered lens tab', () => {
   assert.match(renderSource, /state\.suppressRouteFocus\s*=\s*true/);
   assert.match(renderSource, /state\.lensFocusId/);
+});
+
+test('arrow navigation is scoped to rail tabs, not other lens actions', () => {
+  assert.match(renderSource, /querySelectorAll\('\.lens-tab\[data-lens-id\]'\)/);
+  assert.match(appSource, /matches\('\.lens-tab\[data-lens-id\]'\)/);
 });

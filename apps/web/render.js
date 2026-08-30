@@ -59,7 +59,7 @@ function nextLensTabIndex(current, total, key) {
 
 function handleLensRailKeydown(event) {
   if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
-  const tabs = [...document.querySelectorAll('[data-lens-id]')];
+  const tabs = [...document.querySelectorAll('.lens-tab[data-lens-id]')];
   const current = tabs.indexOf(event.target);
   if (current < 0) return;
   event.preventDefault();
