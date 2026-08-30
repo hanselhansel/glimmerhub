@@ -1,0 +1,92 @@
+:root {
+  --canvas: #F7F7F4;
+  --surface: #FFFFFF;
+  --ink: #1C1E21;
+  --ink-2: #686E77;
+  --ink-3: #8A9099;
+  --line: #E1E2DE;
+  --soft: #F1F2EF;
+  --signal: #D3A72F;
+  --signal-text: #765A00;
+  --positive: #267A57;
+  --warning: #9A6218;
+  --negative: #B24848;
+  --focus: #846600;
+  --overlay: rgba(28, 30, 33, 0.42);
+  --shadow: 0 16px 48px rgba(28, 30, 33, 0.14);
+  --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  --ease: cubic-bezier(0.2, 0, 0, 1);
+  color-scheme: light;
+}
+
+html[data-theme="dark"] {
+  --canvas: #0D0F12;
+  --surface: #12151A;
+  --ink: #F1F0EB;
+  --ink-2: #A0A5AE;
+  --ink-3: #737A84;
+  --line: #2B3037;
+  --soft: #181C21;
+  --signal: #E1B943;
+  --signal-text: #F0D47B;
+  --positive: #55C694;
+  --warning: #D89A4A;
+  --negative: #E07A7A;
+  --focus: #E1B943;
+  --overlay: rgba(0, 0, 0, 0.7);
+  --shadow: 0 16px 48px rgba(0, 0, 0, 0.36);
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--canvas);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: 15px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+button, input, textarea { font: inherit; }
+button, a { -webkit-tap-highlight-color: transparent; }
+a { color: inherit; text-decoration: none; }
+button { color: inherit; }
+img, svg { display: block; }
+
+h1, h2, h3, p { margin-top: 0; }
+h1, h2, h3 { text-wrap: balance; }
+
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.route-heading:focus { outline: none; }
+.mono, .metric-number { font-variant-numeric: tabular-nums; }
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+}
+.hidden { display: none !important; }
+.micro-label {
+  color: var(--signal-text);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  line-height: 14px;
+  text-transform: uppercase;
+}
+.muted { color: var(--ink-2); }
+.tertiary { color: var(--ink-3); }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

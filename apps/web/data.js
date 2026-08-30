@@ -18,6 +18,7 @@ const GLIMMER_DATA = {
       status: "New 2026",
       sources: [{ name: "GitHub", url: "https://github.com/tt-a1i/archify" }],
       briefing: {
+        editorialHeadline: "Archify turns agent-generated diagrams into verifiable engineering artifacts.",
         whatItDoes: "Turns text prompts into self-contained HTML diagrams with motion and crisp export. Aimed at engineering teams that need verifiable visual docs.",
         whyTrending: "It hit #1 on the Trendshift weekly list as interest in AI-generated system design visuals spiked. The README includes live examples.",
         recentChanges: [{ type: "release", title: "v0.2.0", summary: "Adds sequence and lifecycle diagram types.", url: "https://github.com/tt-a1i/archify/releases/tag/v0.2.0" }],
@@ -44,6 +45,7 @@ const GLIMMER_DATA = {
       status: "New 2026",
       sources: [{ name: "GitHub", url: "https://github.com/freestylefly/awesome-gpt-image-2" }],
       briefing: {
+        editorialHeadline: "Prompt-as-code is becoming a production workflow for image teams.",
         whatItDoes: "A curated collection of 530+ reverse-engineered GPT-Image2 examples, plus industrial prompt templates.",
         whyTrending: "It captures the wave of builders trying to control image generation through prompt engineering. High save and share intent.",
         recentChanges: [{ type: "commit", title: "530 examples", summary: "Added the 500+ case reverse-engineering section.", url: "https://github.com/freestylefly/awesome-gpt-image-2/commit/def456" }],
@@ -70,6 +72,7 @@ const GLIMMER_DATA = {
       status: "New 2026",
       sources: [{ name: "GitHub", url: "https://github.com/bilawalsidhu/gods-eye-view" }],
       briefing: {
+        editorialHeadline: "God's Eye View is an audience spike waiting for product evidence.",
         whatItDoes: "A placeholder for a coming AI agent project. The repo itself is mostly documentation and teaser content.",
         whyTrending: "The star velocity is high because the founder has a large audience. Treat this as audience-driven, not yet usage-driven.",
         recentChanges: [{ type: "commit", title: "Initial public release", summary: "Placeholder README and roadmap.", url: "https://github.com/bilawalsidhu/gods-eye-view/commit/ghi789" }],
@@ -96,6 +99,7 @@ const GLIMMER_DATA = {
       status: "New 2026",
       sources: [{ name: "GitHub", url: "https://github.com/MadsLorentzen/ai-job-search" }],
       briefing: {
+        editorialHeadline: "Local job-search agents are winning by owning the whole workflow.",
         whatItDoes: "Evaluates job postings, tailors CVs, writes cover letters, and preps interviews using a local AI agent.",
         whyTrending: "It taps into the post-layoff, AI-copilot job search trend. The README is a clear tutorial, which drives saves and forks.",
         recentChanges: [{ type: "release", title: "v0.1.0", summary: "Initial Claude Code integration for job posting analysis.", url: "https://github.com/MadsLorentzen/ai-job-search/releases/tag/v0.1.0" }],
@@ -123,6 +127,7 @@ const GLIMMER_DATA = {
       status: "New 2026",
       sources: [{ name: "GitHub", url: "https://github.com/GetBusbar/busbar" }, { name: "Product Hunt", url: "https://www.producthunt.com/posts/busbar" }],
       briefing: {
+        editorialHeadline: "Agent permissions are becoming infrastructure, not a safety add-on.",
         whatItDoes: "A permissions layer for AI agents. Define what tools an agent can call and what data it can access before execution.",
         whyTrending: "Featured by Trendshift and tied to the growing conversation around AI safety and agent governance. Also a Product Hunt launch.",
         recentChanges: [{ type: "release", title: "v0.4.0", summary: "Introduced policy-as-code rules.", url: "https://github.com/GetBusbar/busbar/releases/tag/v0.4.0" }],
@@ -149,6 +154,7 @@ const GLIMMER_DATA = {
       status: "New 2026",
       sources: [{ name: "GitHub", url: "https://github.com/deepseek-ai/deepseek-harness" }],
       briefing: {
+        editorialHeadline: "DeepSeek Harness is rising because everything can become a plugin.",
         whatItDoes: "A model evaluation and inference harness for the DeepSeek family. Used for benchmarks and reproducible runs.",
         whyTrending: "The repo is large because of the DeepSeek brand. New stars this week are driven by the latest model release.",
         recentChanges: [{ type: "release", title: "v1.1.0", summary: "Added support for the new reasoning model.", url: "https://github.com/deepseek-ai/deepseek-harness/releases/tag/v1.1.0" }],
@@ -175,6 +181,7 @@ const GLIMMER_DATA = {
       status: "New 2026",
       sources: [{ name: "GitHub", url: "https://github.com/DietrichGebert/ponytail" }],
       briefing: {
+        editorialHeadline: "Developers want coding agents that know when not to write code.",
         whatItDoes: "A set of prompts and tools that nudge coding agents toward minimal, high-quality changes.",
         whyTrending: "It resonates with developers tired of agents that over-engineer. The README is opinionated and memorable.",
         recentChanges: [{ type: "commit", title: "Lazy prompts", summary: "Adds the core lazy-senior-dev prompt pack.", url: "https://github.com/DietrichGebert/ponytail/commit/jkl012" }],
@@ -201,6 +208,7 @@ const GLIMMER_DATA = {
       status: "New 2026",
       sources: [{ name: "GitHub", url: "https://github.com/FlashML-org/FreeToken" }],
       briefing: {
+        editorialHeadline: "LLM cost anxiety is creating a new routing layer.",
         whatItDoes: "Routes LLM calls across free tiers and trial credits so hobby projects can stay under budget.",
         whyTrending: "Cost anxiety around LLM APIs is real. The project solves it with a clear value prop.",
         recentChanges: [{ type: "release", title: "v0.1.0", summary: "First public release with OpenAI and Groq adapters.", url: "https://github.com/FlashML-org/FreeToken/releases/tag/v0.1.0" }],
@@ -227,6 +235,7 @@ const GLIMMER_DATA = {
       status: "New 2026",
       sources: [{ name: "GitHub", url: "https://github.com/calesthio/OpenMontage" }],
       briefing: {
+        editorialHeadline: "Agentic video tools are shifting from demos to repeatable pipelines.",
         whatItDoes: "Lets a coding agent produce videos through 12 predefined pipelines and 100+ tools.",
         whyTrending: "It sits at the intersection of AI video and agentic workflows. The README demos are shareable.",
         recentChanges: [{ type: "commit", title: "12 pipelines", summary: "Added the full production pipeline suite.", url: "https://github.com/calesthio/OpenMontage/commit/mno345" }],
@@ -253,6 +262,7 @@ const GLIMMER_DATA = {
       status: "New 2026",
       sources: [{ name: "GitHub", url: "https://github.com/K-Dense-AI/scientific-agent-skills" }],
       briefing: {
+        editorialHeadline: "Scientific agent skills are finding a focused early audience.",
         whatItDoes: "A library of 163 ready-to-use scientific skills plus database connectors for biology, chemistry, medicine, and drug discovery.",
         whyTrending: "Academic and biotech users are adopting agentic research tools. The repo is niche but has high save intent.",
         recentChanges: [{ type: "commit", title: "163 skills", summary: "Expanded validated skill set for drug discovery.", url: "https://github.com/K-Dense-AI/scientific-agent-skills/commit/pqr678" }],
@@ -280,6 +290,7 @@ const GLIMMER_DATA = {
       status: null,
       sources: [{ name: "GitHub", url: "https://github.com/basecamp/omarchy" }],
       briefing: {
+        editorialHeadline: "Omarchy is turning a Linux distribution into a developer lifestyle product.",
         whatItDoes: "A Linux distribution tailored for developer workstations, with strong conventions and defaults.",
         whyTrending: "Basecamp's audience and a string of Omarchy-related launches are driving attention. It is more lifestyle OS than enterprise play.",
         recentChanges: [{ type: "commit", title: "Installer update", summary: "Improved first-boot experience.", url: "https://github.com/basecamp/omarchy/commit/stu901" }],
@@ -306,6 +317,7 @@ const GLIMMER_DATA = {
       status: null,
       sources: [{ name: "GitHub", url: "https://github.com/tailscale/tailcat" }],
       briefing: {
+        editorialHeadline: "Tailcat gives self-hosters a smaller way into the Tailscale data plane.",
         whatItDoes: "A networking tool for sending packets over Tailscale's mesh network without the central control plane.",
         whyTrending: "It appeals to self-hosters and network engineers. Tailscale's brand gives it credibility.",
         recentChanges: [{ type: "release", title: "v0.0.1", summary: "Initial release.", url: "https://github.com/tailscale/tailcat/releases/tag/v0.0.1" }],
