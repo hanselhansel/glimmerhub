@@ -10,6 +10,7 @@ let state = {
   lensStep: 1,
   lensError: '',
   lensEditorKey: '',
+  pendingLensDelete: null,
   suppressRouteFocus: false
 };
 
@@ -111,7 +112,16 @@ function handleClick(event) {
   if (back) return changeLensStep(Number(back.dataset.lensBack));
   if (event.target.closest('[data-save-lens]')) return saveLensDraft();
   const remove = event.target.closest('[data-delete-lens]');
-  if (remove) return deleteLens(remove.dataset.deleteLens);
+  if (remove) {
+    state.pendingLensDelete = remove.dataset.deleteLens;
+    return renderRoute();
+  }
+  if (event.target.closest('[data-cancel-delete]')) {
+    state.pendingLensDelete = null;
+    return renderRoute();
+  }
+  const confirmDelete = event.target.closest('[data-confirm-delete]');
+  if (confirmDelete) return deleteLens(confirmDelete.dataset.confirmDelete);
   if (event.target.closest('#theme-toggle') || event.target.closest('[data-mobile-theme]')) {
     state.preferences.theme = state.preferences.theme === 'dark' ? 'light' : 'dark';
     state.preferences = savePreferences(state.preferences);

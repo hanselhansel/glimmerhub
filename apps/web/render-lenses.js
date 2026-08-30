@@ -101,7 +101,12 @@ function renderLensEditor(root, route) {
   const draft = ensureLensDraft(route);
   const step = state.lensStep;
   const stepContent = step === 1 ? renderLensDescribe(draft) : step === 2 ? renderLensRefine(draft) : renderLensPreview(draft);
-  root.innerHTML = `<section class="page-shell builder-shell">${renderProgress(step)}<div class="builder-grid">${stepContent}${renderBuilderAside(step)}</div>${draft.id ? `<button class="button button-quiet" data-delete-lens="${esc(draft.id)}">Delete this lens</button>` : ''}</section>`;
+  const deleteControl = draft.id
+    ? state.pendingLensDelete === draft.id
+      ? `<div class="delete-confirm" role="alert"><span>Delete this lens from this browser?</span><button class="button button-small" data-cancel-delete>Cancel</button><button class="button button-small button-danger" data-confirm-delete="${esc(draft.id)}">Confirm deletion</button></div>`
+      : `<button class="button button-quiet" data-delete-lens="${esc(draft.id)}">Delete this lens</button>`
+    : '';
+  root.innerHTML = `<section class="page-shell builder-shell">${renderProgress(step)}<div class="builder-grid">${stepContent}${renderBuilderAside(step)}</div>${deleteControl}</section>`;
   const pageTitle = route.name === 'lens-edit' ? `${draft.id ? 'Edit' : 'Tune'} ${findLens(route.id, state.preferences).name}` : 'Create a lens';
   announceRoute(pageTitle);
 }
@@ -153,6 +158,7 @@ function saveLensDraft() {
 }
 
 function deleteLens(id) {
+  state.pendingLensDelete = null;
   state.preferences.customLenses = state.preferences.customLenses.filter(lens => lens.id !== id);
   state.preferences.activeLensId = 'general';
   state.preferences = savePreferences(state.preferences);

@@ -46,6 +46,9 @@
 .saved-lens-copy { flex: 1; }
 .saved-lens-copy strong { display: block; font-size: 14px; }
 .saved-lens-copy span { color: var(--ink-3); font-size: 12px; }
+.delete-confirm { display: flex; align-items: center; gap: 10px; margin-top: 24px; color: var(--ink-2); font-size: 12px; }
+.button-danger { border-color: var(--negative); color: var(--negative); }
+.button-danger:hover { background: color-mix(in srgb, var(--negative) 8%, var(--surface)); }
 
 @media (max-width: 800px) {
   .builder-grid { grid-template-columns: 1fr; gap: 28px; }

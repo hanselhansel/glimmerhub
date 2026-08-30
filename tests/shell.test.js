@@ -42,3 +42,9 @@ test('mobile menu includes an outside-dismiss backdrop', () => {
   assert.match(html, /id="mobile-menu-backdrop"/);
   assert.match(app, /mobile-menu-backdrop/);
 });
+
+test('custom lens deletion requires explicit confirmation', () => {
+  const renderer = read('render-lenses.js');
+  assert.match(renderer, /data-confirm-delete/);
+  assert.match(renderer, /Confirm deletion/);
+});
