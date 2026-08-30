@@ -137,6 +137,12 @@ function handleInput(event) {
   if (event.target.id === 'lens-example-search') filterLensExamples(event.target.value);
 }
 
+function handleRouteChange() {
+  const next = parseRoute();
+  if (shouldRestoreFeedScroll(state.route, next)) state.restoreFeedScroll = true;
+  renderRoute();
+}
+
 function handleKeydown(event) {
   if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k') {
     event.preventDefault();
@@ -155,7 +161,7 @@ function init() {
   document.addEventListener('click', handleClick);
   document.addEventListener('input', debounce(handleInput, 90));
   document.addEventListener('keydown', handleKeydown);
-  window.addEventListener('hashchange', renderRoute);
+  window.addEventListener('hashchange', handleRouteChange);
   renderRoute();
 }
 

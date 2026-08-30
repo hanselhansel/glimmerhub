@@ -113,6 +113,13 @@ test('compare routes preserve both entity ids', () => {
   });
 });
 
+test('returning from research routes restores the briefing position', () => {
+  const shouldRestore = fn('shouldRestoreFeedScroll');
+  assert.equal(shouldRestore({ name: 'project' }, { name: 'briefing' }), true);
+  assert.equal(shouldRestore({ name: 'compare' }, { name: 'briefing' }), true);
+  assert.equal(shouldRestore({ name: 'topics' }, { name: 'briefing' }), false);
+});
+
 test('built-in lenses expose General and Physical AI', () => {
   load('lenses.js');
   const lenses = value('GLIMMER_LENSES');

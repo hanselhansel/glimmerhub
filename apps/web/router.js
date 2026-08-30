@@ -27,6 +27,10 @@ function routeForLensEdit(id) {
   return `#lens/${encodeURIComponent(id)}/edit`;
 }
 
+function shouldRestoreFeedScroll(from, to) {
+  return ['project', 'compare'].includes(from && from.name) && to && to.name === 'briefing';
+}
+
 function navigateTo(hash, options = {}) {
   if (options.rememberScroll) state.feedScrollY = window.scrollY;
   if (window.location.hash === hash) renderRoute();
