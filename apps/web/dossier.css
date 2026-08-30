@@ -9,7 +9,7 @@
 .dossier-grid { display: grid; grid-template-columns: minmax(0, 1fr) 260px; gap: 56px; padding-top: 36px; }
 .dossier-section { margin-bottom: 38px; }
 .dossier-section h2 { margin-bottom: 10px; font-size: 18px; font-weight: 650; line-height: 24px; }
-.dossier-section p, .dossier-section li { color: var(--ink-2); font-size: 14px; line-height: 22px; }
+.dossier-section p, .dossier-section li { color: var(--ink-2); font-size: 15px; line-height: 23px; }
 .dossier-section ul { padding-left: 18px; }
 
 .evidence-thread { position: relative; list-style: none; padding: 0 0 0 25px; margin: 0; }
@@ -19,7 +19,7 @@
 .evidence-item::before { content: ""; position: absolute; top: 7px; left: -24px; width: 8px; height: 8px; border-radius: 50%; background: var(--signal); box-shadow: 0 0 0 4px var(--canvas); }
 .evidence-type { color: var(--signal-text); font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
 .evidence-title { margin: 3px 0; color: var(--ink); font-size: 14px; font-weight: 600; }
-.evidence-summary { margin: 0 0 5px; color: var(--ink-2); font-size: 13px; line-height: 20px; }
+.evidence-summary { margin: 0 0 5px; color: var(--ink-2); font-size: 14px; line-height: 21px; }
 .evidence-source { color: var(--ink-3); font-size: 12px; text-decoration: underline; text-underline-offset: 3px; }
 
 .credibility-score { display: flex; align-items: baseline; gap: 8px; margin-bottom: 15px; }
@@ -34,7 +34,7 @@
 
 .dossier-aside-section { padding-bottom: 22px; margin-bottom: 22px; border-bottom: 1px solid var(--line); }
 .dossier-aside-section h2 { margin-bottom: 9px; font-size: 13px; font-weight: 650; }
-.dossier-aside-section p, .dossier-aside-section li { color: var(--ink-2); font-size: 12px; line-height: 18px; }
+.dossier-aside-section p, .dossier-aside-section li { color: var(--ink-2); font-size: 13px; line-height: 19px; }
 .dossier-aside-section ul { padding-left: 16px; margin-bottom: 0; }
 .text-link { color: var(--signal-text); text-decoration: underline; text-underline-offset: 3px; }
 
