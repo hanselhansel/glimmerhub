@@ -41,7 +41,8 @@
 .aside-section p { margin-bottom: 0; font-size: 13px; line-height: 20px; }
 .lens-theme-list, .example-list { list-style: none; padding: 0; margin: 10px 0 0; }
 .lens-theme-list li, .example-list li { display: flex; justify-content: space-between; gap: 12px; padding: 9px 0; border-top: 1px solid var(--line); font-size: 12px; }
-.lens-theme-list span { color: var(--ink-3); }
+.lens-theme-list li > span:first-child { color: var(--ink); font-weight: 500; }
+.lens-theme-list li > span:last-child { color: var(--ink-3); }
 .example-list li { display: block; color: var(--ink); }
 .example-list small { display: block; margin-top: 2px; color: var(--ink-3); }
 
